@@ -1,6 +1,7 @@
 import React from 'react';
 import type Animated from 'react-native-reanimated';
-import { Easing } from '../constants';
+import { Easing } from 'react-native-reanimated';
+// import { Easing } from '../constants';
 import { runOnJS, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { TCarouselActionOptions } from '../types';
 
@@ -118,7 +119,7 @@ export function useCarouselController(options: IOpts): ICarouselController {
         (toValue: number, onFinished?: () => void) => {
             return withTiming(
                 toValue,
-                { duration, easing: Easing.easeOutQuart },
+                { duration, easing: Easing.linear },
                 (isFinished: boolean) => {
                     if (isFinished) {
                         runOnJS(onScrollEnd)();
